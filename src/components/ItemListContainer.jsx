@@ -10,9 +10,9 @@ const ItemListContainer = () => {
   const { addToCart } = useContext(CartContext);
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [loading, setLoading] = useState(true); // Estado para mostrar carga
+  const [loading, setLoading] = useState(true); 
 
-  // Obtener todos los productos desde Firebase
+  
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -22,16 +22,16 @@ const ItemListContainer = () => {
           ...doc.data(),
         }));
         setProducts(productsData);
-        setLoading(false); // Finaliza la carga
+        setLoading(false); 
       } catch (error) {
         console.error("Error al obtener productos: ", error);
-        setLoading(false); // Finaliza la carga en caso de error
+        setLoading(false); 
       }
     };
     fetchProducts();
   }, []);
 
-  // Filtrar productos por categoría
+  
   useEffect(() => {
     if (categoryId) {
       const filtered = products.filter(product => product.category === categoryId);
@@ -41,7 +41,7 @@ const ItemListContainer = () => {
     }
   }, [categoryId, products]);
 
-  // Mostrar un mensaje mientras se cargan los productos
+  
   if (loading) {
     return <p>Cargando productos...</p>;
   }

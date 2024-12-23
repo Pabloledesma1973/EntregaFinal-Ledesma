@@ -2,18 +2,18 @@ import React, { useContext } from 'react';
 import { CartContext } from './context/CartContextProvider';
 
 const ItemDetail = ({ item }) => {
-  const { addToCart } = useContext(CartContext); // Usar la función correcta del contexto
+  const { addToCart } = useContext(CartContext); 
 
   const handleAddToCart = () => {
-    // Asegúrate de que el producto tenga un formato correcto
+    
     const productToAdd = {
       id: item.id,
       name: item.name,
       price: item.price,
       image: item.image,
-      quantity: 1, // Cantidad inicial
+      quantity: 1, 
     };
-    addToCart(productToAdd); // Llamar a la función del carrito
+    addToCart(productToAdd); 
   };
 
   return (
